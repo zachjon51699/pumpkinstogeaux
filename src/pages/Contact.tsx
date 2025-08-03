@@ -281,12 +281,12 @@ const Contact: React.FC = () => {
                     👭
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900">Sister-Run Business</h3>
+                    <h3 className="text-xl font-bold text-gray-900">Mama-Run Business</h3>
                     <p className="text-gray-600">Local Louisiana family serving our community</p>
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  We're two sisters who fell in love with bringing fall magic to front porches across 
+                  We're a mama-owned business who fell in love with bringing fall magic to front porches across 
                   Baton Rouge. What started as decorating our own homes has grown into a passion for 
                   helping our neighbors celebrate the season in style.
                 </p>
