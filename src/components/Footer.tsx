@@ -7,34 +7,34 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
   return (
-    <footer className="bg-orange-800 text-white">
+    <footer className="bg-orange-100 text-orange-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-orange-400 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-orange-300 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold">🎃</span>
               </div>
-              <h3 className="text-xl font-bold">Pumpkins to Geaux</h3>
+              <h3 className="text-xl font-bold text-orange-600">Pumpkins to Geaux</h3>
             </div>
-            <p className="text-orange-100 mb-4 max-w-md">
+            <p className="text-orange-800 mb-4 max-w-md">
               Sister-run local business bringing fall to your front door. We deliver and style beautiful pumpkin displays right on your porch, bringing Louisiana charm to your fall decorations.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="w-6 h-6 text-orange-200 hover:text-white cursor-pointer transition-colors" />
-              <Instagram className="w-6 h-6 text-orange-200 hover:text-white cursor-pointer transition-colors" />
+              <Facebook className="w-6 h-6 text-orange-500 hover:text-orange-700 cursor-pointer transition-colors" />
+              <Instagram className="w-6 h-6 text-orange-500 hover:text-orange-700 cursor-pointer transition-colors" />
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4 text-orange-700">Quick Links</h4>
             <ul className="space-y-2">
               <li>
                 <button
                   onClick={() => setCurrentPage('home')}
-                  className="text-orange-200 hover:text-white transition-colors"
+                  className="text-orange-600 hover:text-orange-800 transition-colors"
                 >
                   Home
                 </button>
@@ -42,7 +42,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               <li>
                 <button
                   onClick={() => setCurrentPage('how-it-works')}
-                  className="text-orange-200 hover:text-white transition-colors"
+                  className="text-orange-600 hover:text-orange-800 transition-colors"
                 >
                   How It Works
                 </button>
@@ -50,17 +50,17 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               <li>
                 <button
                   onClick={() => setCurrentPage('packages')}
-                  className="text-orange-200 hover:text-white transition-colors"
+                  className="text-orange-600 hover:text-orange-800 transition-colors"
                 >
                   Packages
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => setCurrentPage('gallery')}
-                  className="text-orange-200 hover:text-white transition-colors"
+                  onClick={() => setCurrentPage('contact')}
+                  className="text-orange-600 hover:text-orange-800 transition-colors"
                 >
-                  Gallery
+                  Contact
                 </button>
               </li>
             </ul>
@@ -68,19 +68,19 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="text-lg font-semibold mb-4 text-orange-700">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
-                <Phone className="w-4 h-4" />
-                <span className="text-orange-200">(225) 555-GOAUX</span>
+                <Phone className="w-4 h-4 text-orange-500" />
+                <span>(225) 555-GOAUX</span>
               </li>
               <li className="flex items-center space-x-2">
-                <Mail className="w-4 h-4" />
-                <span className="text-orange-200">hello@pumpkinstogeaux.com</span>
+                <Mail className="w-4 h-4 text-orange-500" />
+                <span>hello@pumpkinstogeaux.com</span>
               </li>
               <li className="flex items-start space-x-2">
-                <MapPin className="w-4 h-4 mt-1" />
-                <span className="text-orange-200">
+                <MapPin className="w-4 h-4 mt-1 text-orange-500" />
+                <span>
                   Serving Greater Baton Rouge<br />
                   & Surrounding Areas
                 </span>
@@ -89,8 +89,8 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
           </div>
         </div>
 
-        <div className="border-t border-orange-700 mt-8 pt-8 text-center">
-          <p className="text-orange-200">
+        <div className="border-t border-orange-200 mt-8 pt-8 text-center">
+          <p className="text-orange-700">
             © 2024 Pumpkins to Geaux. All rights reserved. | Laissez les bons temps rouler! 🎃⚜️
           </p>
         </div>
