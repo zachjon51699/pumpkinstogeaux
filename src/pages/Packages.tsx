@@ -1,5 +1,8 @@
 import React from 'react';
 import { Check, Star, ArrowRight } from 'lucide-react';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 interface PackagesProps {
   setCurrentPage: (page: string) => void;
@@ -20,11 +23,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Does not include design and layout",
         "Front porch drop off included"
       ],
-      images: [
-        "/images/standard-1.png",
-        "/images/standard-2.png",
-        "/images/standard-3.png"
-      ],
+      images: ["/images/standard-1.png", "/images/standard-2.png", "/images/standard-3.png"],
       popular: false,
       color: "orange"
     },
@@ -52,9 +51,9 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Free Shipping",
         "2 Grand Prize Pumpkins, 10 Large Jack O Lanterns",
         "8 Medium Jack O Lanterns, 8 White Ghost Pumpkins",
-        "An assortment of Pie Pumpkins, 16 Specialty Pumpkins",
-        "Mini Orange & White Pumpkins, 3 Hay Bales and Gourds",
-        "Includes design and set up"
+        "Assortment of Pie Pumpkins, 16 Specialty Pumpkins",
+        "Mini Orange & White Pumpkins, 3 Hay Bales",
+        "Ornamental Gourds, Includes design and set up"
       ],
       popular: false,
       color: "purple"
@@ -70,9 +69,16 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
     { name: "End-Season Cleanup", price: "$25", description: "We remove everything" }
   ];
 
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
   return (
     <div className="pt-8">
-      {/* Hero Section */}
       <section className="bg-gradient-to-br from-orange-100 to-amber-100 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">Our Packages</h1>
@@ -80,26 +86,18 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
             From simple elegance to custom Louisiana magic - find the perfect fit for your porch
           </p>
           <div className="flex justify-center space-x-4 text-5xl">
-            <span>🎃</span>
-            <span>⚜️</span>
-            <span>🌾</span>
-            <span>🍂</span>
+            <span>🎃</span><span>⚜️</span><span>🌾</span><span>🍂</span>
           </div>
         </div>
       </section>
 
-      {/* Packages Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
               <div
                 key={index}
-                className={`relative bg-white rounded-2xl shadow-xl border-2 p-8 ${
-                  pkg.popular
-                    ? 'border-orange-300 transform scale-105'
-                    : 'border-gray-200 hover:border-orange-300'
-                } transition-all duration-200 hover:shadow-2xl`}
+                className={`relative bg-white rounded-2xl shadow-xl border-2 p-8 ${pkg.popular ? 'border-orange-300 transform scale-105' : 'border-gray-200 hover:border-orange-300'} transition-all duration-200 hover:shadow-2xl`}
               >
                 {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -114,7 +112,18 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                   <div className="text-6xl mb-4">{pkg.emoji}</div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
                   <div className="text-4xl font-bold text-orange-600 mb-3">{pkg.price}</div>
-                  <p className="text-gray-600">{pkg.description}</p>
+                  <p className="text-gray-600 mb-4">{pkg.description}</p>
+
+                  {/* Only show carousel if package has images */}
+                  {pkg.images && (
+                    <Slider {...sliderSettings}>
+                      {pkg.images.map((src, idx) => (
+                        <div key={idx}>
+                          <img src={src} alt={`Package ${pkg.name} ${idx + 1}`} className="rounded-xl w-full h-64 object-cover mb-4" />
+                        </div>
+                      ))}
+                    </Slider>
+                  )}
                 </div>
 
                 <ul className="space-y-4 mb-8">
@@ -125,19 +134,6 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                     </li>
                   ))}
                 </ul>
-
-                {pkg.images && (
-                  <div className="grid grid-cols-1 gap-4 mb-6">
-                    {pkg.images.map((src, imgIndex) => (
-                      <img
-                        key={imgIndex}
-                        src={src}
-                        alt={`${pkg.name} example ${imgIndex + 1}`}
-                        className="rounded-xl shadow-sm w-full object-cover"
-                      />
-                    ))}
-                  </div>
-                )}
 
                 <button
                   onClick={() => setCurrentPage('packages')}
@@ -152,14 +148,13 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      {/* Add-On Services */}
+      {/* Add-Ons */}
       <section className="py-20 bg-amber-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Add-On Services</h2>
             <p className="text-xl text-gray-600">Make your display even more special with these extras</p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {addOns.map((addon, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-200">
@@ -171,7 +166,6 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
               </div>
             ))}
           </div>
-
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-6">
               Want to add any of these to your package? Let us know when you book!
@@ -188,58 +182,21 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">Frequently Asked Questions</h2>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Frequently Asked Questions</h2>
           <div className="space-y-8">
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">How long do the displays last?</h3>
-              <p className="text-gray-700">Our displays are designed to last the entire fall season (September through November). We use high-quality pumpkins and weather-resistant decorations.</p>
+            <div>
+              <h3 className="text-xl font-semibold text-orange-600 mb-2">How long do the pumpkins last?</h3>
+              <p className="text-gray-700">Most of our pumpkins last the entire fall season, especially if kept out of direct sunlight and extreme heat. We also offer a mid-season refresh add-on if needed!</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">What if I want changes after setup?</h3>
-              <p className="text-gray-700">We're happy to make adjustments! Contact us within 24 hours of setup, and we'll work with you to make sure you love your display.</p>
+            <div>
+              <h3 className="text-xl font-semibold text-orange-600 mb-2">Do you deliver outside Baton Rouge?</h3>
+              <p className="text-gray-700">We primarily serve Greater Baton Rouge but can accommodate nearby areas – contact us before booking and we’ll try to make it work!</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Do you provide your own pumpkins?</h3>
-              <p className="text-gray-700">Yes! We source fresh, high-quality pumpkins from local Louisiana farms. All pumpkins and decorations are included in your package price.</p>
+            <div>
+              <h3 className="text-xl font-semibold text-orange-600 mb-2">Can I customize my display?</h3>
+              <p className="text-gray-700">Absolutely! Choose a custom package or add design services at checkout. We're happy to work with your ideas.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">What about weather damage?</h3>
-              <p className="text-gray-700">We use weather-resistant materials, but Louisiana weather can be unpredictable! If severe weather damages your display, contact us and we'll make it right.</p>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <button
-              onClick={() => setCurrentPage('contact')}
-              className="text-orange-500 font-semibold hover:text-orange-600 text-lg"
-            >
-              Have more questions? Contact us →
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-orange-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Choose Your Package?</h2>
-          <p className="text-xl text-orange-100 mb-8">
-            Join hundreds of happy Baton Rouge families this fall season
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => setCurrentPage('book-now')}
-              className="bg-orange-400 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-500 transition-colors duration-200"
-            >
-              Book Your Package Now
-            </button>
-            <button
-              onClick={() => setCurrentPage('contact')}
-              className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-orange-600 transition-colors duration-200"
-            >
-              Get Custom Quote
-            </button>
           </div>
         </div>
       </section>
