@@ -20,11 +20,6 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Does not include design and layout",
         "Front porch drop off included"
       ],
-      images: [
-        "/images/standard-1.png",
-        "/images/standard-2.png",
-        "/images/standard-3.png"
-      ],
       popular: false,
       color: "orange"
     },
@@ -96,8 +91,8 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
               <div
                 key={index}
                 className={`relative bg-white rounded-2xl shadow-xl border-2 p-8 ${
-                  pkg.popular
-                    ? 'border-orange-300 transform scale-105'
+                  pkg.popular 
+                    ? 'border-orange-300 transform scale-105' 
                     : 'border-gray-200 hover:border-orange-300'
                 } transition-all duration-200 hover:shadow-2xl`}
               >
@@ -118,26 +113,13 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                 </div>
 
                 <ul className="space-y-4 mb-8">
-                  {pkg.features.map((feature, i) => (
-                    <li key={i} className="flex items-start space-x-3">
+                  {pkg.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start space-x-3">
                       <Check className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
                 </ul>
-
-                {pkg.images && (
-                  <div className="grid grid-cols-1 gap-4 mb-6">
-                    {pkg.images.map((src, imgIndex) => (
-                      <img
-                        key={imgIndex}
-                        src={src}
-                        alt={`${pkg.name} example ${imgIndex + 1}`}
-                        className="rounded-xl shadow-sm w-full object-cover"
-                      />
-                    ))}
-                  </div>
-                )}
 
                 <button
                   onClick={() => setCurrentPage('packages')}
@@ -152,7 +134,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      {/* Add-On Services */}
+      {/* Add-Ons Section */}
       <section className="py-20 bg-amber-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -186,7 +168,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Preview */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">Frequently Asked Questions</h2>
@@ -220,7 +202,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA Section */}
       <section className="py-20 bg-orange-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Choose Your Package?</h2>
@@ -248,3 +230,4 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
 };
 
 export default Packages;
+
