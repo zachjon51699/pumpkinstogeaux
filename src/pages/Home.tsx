@@ -52,7 +52,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
               </h1>
               <p className="text-xl mb-8 text-orange-700">
                 Professional pumpkin displays delivered and styled right on your porch. 
-                Mama-owned local business serving Greater Baton Rouge with Louisiana charm.
+                Sister-run local business serving Greater Baton Rouge with Louisiana charm.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
@@ -70,22 +70,15 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                 </button>
               </div>
             </div>
-            
-            <div className="relative">
-              <div className="bg-orange-50 rounded-2xl p-4 text-center shadow">
-                <img 
-                  src="/images/your-image-file-name.png" 
-                  alt="Pumpkin display on porch" 
-                  className="rounded-xl shadow-lg object-cover w-full h-auto"
-                />
-                <div className="mt-6 flex justify-center space-x-4 text-4xl">
-                  <span>🍂</span>
-                  <span>⚜️</span>
-                  <span>🌾</span>
-                </div>
-              </div>
-            </div>
 
+            {/* Image replaces the hero card */}
+            <div className="relative">
+              <img
+                src="/images/pumpkin-porch.jpg"
+                alt="Pumpkin display on porch"
+                className="rounded-2xl shadow-lg"
+              />
+            </div>
           </div>
         </div>
       </section>
