@@ -9,56 +9,47 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
   const packages = [
     {
       name: "Standard",
-      price: "$75",
+      price: "$525",
       emoji: "🎃",
-      description: "Perfect for DIYers who want a charming fall display",
+      description: "Perfect starter package for classic fall charm",
       features: [
-        "6 Large Jack O Lanterns",
-        "6 Medium Jack O Lanterns",
-        "6 White Ghost Pumpkins",
-        "Assortment of Pie Pumpkins",
-        "8 Specialty Pumpkins",
-        "2 Hay Bales",
-        "Front porch drop-off included",
-        "Design & layout NOT included",
-        "Add design for $75 at checkout"
+        "Free Shipping",
+        "6 Large Jack O Lanterns, 6 Medium Jack O Lanterns",
+        "6 White Ghost Pumpkins, an assortment of Pie Pumpkins",
+        "8 Specialty Pumpkins and 2 Hay Bales",
+        "Does not include design and layout",
+        "Front porch drop off included"
       ],
       popular: false,
       color: "orange"
     },
     {
       name: "Deluxe",
-      price: "$125",
+      price: "$800",
       emoji: "🎃🌾",
-      description: "Most popular package with full setup and design",
+      description: "Our most popular package with Louisiana flair",
       features: [
-        "8 Large Jack O Lanterns",
-        "8 Medium Jack O Lanterns",
-        "8 White Ghost Pumpkins",
-        "Assortment of Pie Pumpkins",
-        "14 Specialty Pumpkins",
-        "2 Hay Bales",
-        "Ornamental Gourds",
-        "Delivery & full design setup",
-        "Mid-season refresh option"
+        "Free Shipping",
+        "8 Large Jack O Lanterns, 8 Medium Jack O Lanterns",
+        "8 White Ghost Pumpkins, an assortment of Pie Pumpkins",
+        "14 Specialty Pumpkins, 2 Hay Bales and Ornamental Gourds",
+        "Includes design and set up"
       ],
       popular: true,
       color: "green"
     },
     {
       name: "Custom",
-      price: "$175+",
+      price: "$1200",
       emoji: "🎃✨",
-      description: "Tailored design with your preferred style & theme",
+      description: "Completely personalized for your unique style",
       features: [
-        "Fully personalized pumpkin count & layout",
-        "Custom theme and color palette",
-        "Premium Louisiana elements",
-        "Optional consultation",
-        "Great for events or special occasions",
-        "Front porch setup included",
-        "Price varies based on design scope",
-        "Free Shipping"
+        "Free Shipping",
+        "2 Grand Prize Pumpkins, 10 Large Jack O Lanterns",
+        "8 Medium Jack O Lanterns, 8 White Ghost Pumpkins",
+        "An assortment of Pie Pumpkins, 16 Specialty Pumpkins",
+        "Mini Orange & White Pumpkins, 3 Hay Bales and Gourds",
+        "Includes design and set up"
       ],
       popular: false,
       color: "purple"
@@ -76,6 +67,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
 
   return (
     <div className="pt-8">
+      {/* Hero Section */}
       <section className="bg-gradient-to-br from-orange-100 to-amber-100 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">Our Packages</h1>
@@ -91,6 +83,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
+      {/* Packages Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -141,6 +134,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
+      {/* Add-Ons Section */}
       <section className="py-20 bg-amber-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -174,26 +168,23 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
+      {/* FAQ Preview */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">Frequently Asked Questions</h2>
-
           <div className="space-y-8">
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-3">How long do the displays last?</h3>
               <p className="text-gray-700">Our displays are designed to last the entire fall season (September through November). We use high-quality pumpkins and weather-resistant decorations.</p>
             </div>
-
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-3">What if I want changes after setup?</h3>
               <p className="text-gray-700">We're happy to make adjustments! Contact us within 24 hours of setup, and we'll work with you to make sure you love your display.</p>
             </div>
-
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-3">Do you provide your own pumpkins?</h3>
               <p className="text-gray-700">Yes! We source fresh, high-quality pumpkins from local Louisiana farms. All pumpkins and decorations are included in your package price.</p>
             </div>
-
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-3">What about weather damage?</h3>
               <p className="text-gray-700">We use weather-resistant materials, but Louisiana weather can be unpredictable! If severe weather damages your display, contact us and we'll make it right.</p>
@@ -211,6 +202,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
+      {/* CTA Section */}
       <section className="py-20 bg-orange-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Choose Your Package?</h2>
@@ -238,3 +230,4 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
 };
 
 export default Packages;
+
