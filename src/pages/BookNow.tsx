@@ -17,9 +17,9 @@ const BookNow: React.FC = () => {
   });
 
   const packages = [
-    { id: 'standard', name: 'Standard Package', price: '$75' },
-    { id: 'deluxe', name: 'Deluxe Package', price: '$125' },
-    { id: 'custom', name: 'Custom Package', price: '$175+' }
+    { id: 'standard', name: 'Standard Package', price: '$525' },
+    { id: 'deluxe', name: 'Deluxe Package', price: '$800' },
+    { id: 'custom', name: 'Custom Package', price: '$1200' }
   ];
 
   const addOns = [
