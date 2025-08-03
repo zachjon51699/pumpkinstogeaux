@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               <h3 className="text-xl font-bold text-orange-600">Pumpkins to Geaux</h3>
             </div>
             <p className="text-orange-800 mb-4 max-w-md">
-              Sister-run local business bringing fall to your front door. We deliver and style beautiful pumpkin displays right on your porch, bringing Louisiana charm to your fall decorations.
+              Mama-owned business bringing fall to your front door. We deliver and style beautiful pumpkin displays right on your porch, bringing Louisiana charm to your fall decorations.
             </p>
             <div className="flex space-x-4">
               <Facebook className="w-6 h-6 text-orange-500 hover:text-orange-700 cursor-pointer transition-colors" />
