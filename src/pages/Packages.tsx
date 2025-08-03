@@ -20,11 +20,6 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Does not include design and layout",
         "Front porch drop off included"
       ],
-      images: [
-        "/images/standard-1.png",
-        "/images/standard-2.png",
-        "/images/standard-3.png"
-      ],
       popular: false,
       color: "orange"
     },
@@ -52,10 +47,9 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Free Shipping",
         "2 Grand Prize Pumpkins, 10 Large Jack O Lanterns",
         "8 Medium Jack O Lanterns, 8 White Ghost Pumpkins",
-        "An assortment of Pie Pumpkins, 16 Specialty Pumpkins",
-        "Mini Orange Pumpkins, Mini White Pumpkins",
-        "3 Hay Bales and Ornamental Gourds",
-        "Includes design and set up"
+        "Assortment of Pie Pumpkins, 16 Specialty Pumpkins",
+        "Mini Orange & White Pumpkins, 3 Hay Bales",
+        "Ornamental Gourds, Includes design and set up"
       ],
       popular: false,
       color: "purple"
@@ -116,11 +110,11 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                   ))}
                 </ul>
 
-                {pkg.images && (
-                  <div className="grid grid-cols-1 gap-4 mb-6">
-                    {pkg.images.map((image, imgIndex) => (
-                      <img key={imgIndex} src={image} alt={`Package ${pkg.name} ${imgIndex + 1}`} className="rounded-lg w-full" />
-                    ))}
+                {pkg.name === "Standard" && (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <img src="/images/standard-1.png" alt="Standard 1" className="rounded-xl shadow-md" />
+                    <img src="/images/standard-2.png" alt="Standard 2" className="rounded-xl shadow-md" />
+                    <img src="/images/standard-3.png" alt="Standard 3" className="rounded-xl shadow-md" />
                   </div>
                 )}
 
@@ -133,36 +127,6 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                 </button>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-amber-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Answers to common questions about our packages and services
-            </p>
-          </div>
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-xl font-semibold text-orange-600 mb-2">Do you deliver to my area?</h3>
-              <p className="text-gray-700">We currently serve the Greater Baton Rouge area. If you're unsure, just reach out and we'll confirm!</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-orange-600 mb-2">When will my pumpkins be delivered?</h3>
-              <p className="text-gray-700">We coordinate delivery times with you after booking. We aim for timely delivery in early fall and can accommodate custom dates for events.</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-orange-600 mb-2">Can I customize my package?</h3>
-              <p className="text-gray-700">Absolutely! Our Custom package is fully customizable. For Standard and Deluxe, you can also add-on extras or tweak a few details.</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-orange-600 mb-2">How long do the pumpkins last?</h3>
-              <p className="text-gray-700">Most pumpkins last 4–8 weeks depending on weather and sun exposure. We also offer mid-season refresh options!</p>
-            </div>
           </div>
         </div>
       </section>
