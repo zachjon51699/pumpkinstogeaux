@@ -74,7 +74,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
             {/* Image replaces the hero card */}
             <div className="relative">
               <img
-                src="/images/pumpkin-porch.jpg"
+                src="/images/pumpkin-porch.png"
                 alt="Pumpkin display on porch"
                 className="rounded-2xl shadow-lg"
               />
