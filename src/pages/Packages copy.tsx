@@ -20,11 +20,6 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Does not include design and layout",
         "Front porch drop off included"
       ],
-      images: [
-        "/images/standard1.png",
-        "/images/standard2.png",
-        "/images/standard3.png"
-      ],
       popular: false,
       color: "orange"
     },
@@ -53,8 +48,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "2 Grand Prize Pumpkins, 10 Large Jack O Lanterns",
         "8 Medium Jack O Lanterns, 8 White Ghost Pumpkins",
         "An assortment of Pie Pumpkins, 16 Specialty Pumpkins",
-        "Mini Orange Pumpkins, Mini White Pumpkins",
-        "3 Hay Bales and Ornamental Gourds",
+        "Mini Orange & White Pumpkins, 3 Hay Bales and Gourds",
         "Includes design and set up"
       ],
       popular: false,
@@ -127,19 +121,6 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                   ))}
                 </ul>
 
-                {pkg.images && (
-                  <div className="grid grid-cols-1 gap-4 mb-6">
-                    {pkg.images.map((src, i) => (
-                      <img
-                        key={i}
-                        src={src}
-                        alt={`${pkg.name} ${i + 1}`}
-                        className="rounded-xl shadow-md"
-                      />
-                    ))}
-                  </div>
-                )}
-
                 <button
                   onClick={() => setCurrentPage('packages')}
                   className="w-full py-4 px-6 rounded-full font-bold text-lg transition-colors duration-200 flex items-center justify-center space-x-2 bg-orange-400 text-white hover:bg-orange-500"
@@ -186,8 +167,67 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Preview */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">Frequently Asked Questions</h2>
+          <div className="space-y-8">
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">How long do the displays last?</h3>
+              <p className="text-gray-700">Our displays are designed to last the entire fall season (September through November). We use high-quality pumpkins and weather-resistant decorations.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">What if I want changes after setup?</h3>
+              <p className="text-gray-700">We're happy to make adjustments! Contact us within 24 hours of setup, and we'll work with you to make sure you love your display.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Do you provide your own pumpkins?</h3>
+              <p className="text-gray-700">Yes! We source fresh, high-quality pumpkins from local Louisiana farms. All pumpkins and decorations are included in your package price.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">What about weather damage?</h3>
+              <p className="text-gray-700">We use weather-resistant materials, but Louisiana weather can be unpredictable! If severe weather damages your display, contact us and we'll make it right.</p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <button
+              onClick={() => setCurrentPage('contact')}
+              className="text-orange-500 font-semibold hover:text-orange-600 text-lg"
+            >
+              Have more questions? Contact us →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-orange-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold mb-6">Ready to Choose Your Package?</h2>
+          <p className="text-xl text-orange-100 mb-8">
+            Join hundreds of happy Baton Rouge families this fall season
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => setCurrentPage('book-now')}
+              className="bg-orange-400 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-500 transition-colors duration-200"
+            >
+              Book Your Package Now
+            </button>
+            <button
+              onClick={() => setCurrentPage('contact')}
+              className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-orange-600 transition-colors duration-200"
+            >
+              Get Custom Quote
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
 
 export default Packages;
+
