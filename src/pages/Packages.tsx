@@ -21,9 +21,9 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Front porch drop off included"
       ],
       images: [
-        "/images/standard1.png",
-        "/images/standard2.png",
-        "/images/standard3.png"
+        "/images/standard-1.png",
+        "/images/standard-2.png",
+        "/images/standard-3.png"
       ],
       popular: false,
       color: "orange"
@@ -62,18 +62,8 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
     }
   ];
 
-  const addOns = [
-    { name: "Porch Lighting", price: "$25", description: "String lights or lanterns" },
-    { name: "Welcome Sign", price: "$35", description: "Custom wooden fall sign" },
-    { name: "Wreath & Door Decor", price: "$45", description: "Matching front door styling" },
-    { name: "Mid-Season Refresh", price: "$40", description: "Update your display halfway through" },
-    { name: "Thanksgiving Update", price: "$30", description: "Add Thanksgiving elements" },
-    { name: "End-Season Cleanup", price: "$25", description: "We remove everything" }
-  ];
-
   return (
     <div className="pt-8">
-      {/* Hero Section */}
       <section className="bg-gradient-to-br from-orange-100 to-amber-100 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">Our Packages</h1>
@@ -89,7 +79,6 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      {/* Packages Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -129,13 +118,8 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
 
                 {pkg.images && (
                   <div className="grid grid-cols-1 gap-4 mb-6">
-                    {pkg.images.map((src, i) => (
-                      <img
-                        key={i}
-                        src={src}
-                        alt={`${pkg.name} ${i + 1}`}
-                        className="rounded-xl shadow-md"
-                      />
+                    {pkg.images.map((image, imgIndex) => (
+                      <img key={imgIndex} src={image} alt={`Package ${pkg.name} ${imgIndex + 1}`} className="rounded-lg w-full" />
                     ))}
                   </div>
                 )}
@@ -153,36 +137,32 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      {/* Add-Ons Section */}
+      {/* FAQ Section */}
       <section className="py-20 bg-amber-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Add-On Services</h2>
-            <p className="text-xl text-gray-600">Make your display even more special with these extras</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {addOns.map((addon, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-200">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-lg font-bold text-gray-900">{addon.name}</h3>
-                  <span className="text-xl font-bold text-orange-600">{addon.price}</span>
-                </div>
-                <p className="text-gray-600">{addon.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-6">
-              Want to add any of these to your package? Let us know when you book!
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Answers to common questions about our packages and services
             </p>
-            <button
-              onClick={() => setCurrentPage('book-now')}
-              className="bg-orange-400 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-500 transition-colors duration-200"
-            >
-              Book Now & Add Extras
-            </button>
+          </div>
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-xl font-semibold text-orange-600 mb-2">Do you deliver to my area?</h3>
+              <p className="text-gray-700">We currently serve the Greater Baton Rouge area. If you're unsure, just reach out and we'll confirm!</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-orange-600 mb-2">When will my pumpkins be delivered?</h3>
+              <p className="text-gray-700">We coordinate delivery times with you after booking. We aim for timely delivery in early fall and can accommodate custom dates for events.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-orange-600 mb-2">Can I customize my package?</h3>
+              <p className="text-gray-700">Absolutely! Our Custom package is fully customizable. For Standard and Deluxe, you can also add-on extras or tweak a few details.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-orange-600 mb-2">How long do the pumpkins last?</h3>
+              <p className="text-gray-700">Most pumpkins last 4–8 weeks depending on weather and sun exposure. We also offer mid-season refresh options!</p>
+            </div>
           </div>
         </div>
       </section>
