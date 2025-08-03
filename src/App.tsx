@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import HowItWorks from './pages/HowItWorks';
 import Packages from './pages/Packages';
 import BookNow from './pages/BookNow';
-import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 
 function App() {
@@ -21,8 +20,6 @@ function App() {
         return <Packages setCurrentPage={setCurrentPage} />;
       case 'book-now':
         return <BookNow />;
-      case 'gallery':
-        return <Gallery />;
       case 'contact':
         return <Contact />;
       default:
