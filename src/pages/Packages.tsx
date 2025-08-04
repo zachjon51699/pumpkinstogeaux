@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Check, Star, ArrowRight } from 'lucide-react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -9,6 +9,8 @@ interface PackagesProps {
 }
 
 const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -47,7 +49,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "14 Specialty Pumpkins, 2 Hay Bales and Ornamental Gourds",
         "Includes design and set up"
       ],
-      images: ["/images/deluxe-1.png", "/images/deluxe-2.png", "/images/deluxe-3.png"], // ✅ This is the new line
+      images: ["/images/deluxe-1.png", "/images/deluxe-2.png", "/images/deluxe-3.png"],
       popular: true,
       color: "green"
     },
@@ -119,7 +121,12 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                     <Slider {...sliderSettings}>
                       {pkg.images.map((src, idx) => (
                         <div key={idx}>
-                          <img src={src} alt={`Package ${pkg.name} ${idx + 1}`} className="rounded-xl w-full h-64 object-cover mb-4" />
+                          <img
+                            src={src}
+                            alt={`Package ${pkg.name} ${idx + 1}`}
+                            className="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer"
+                            onClick={() => setSelectedImage(src)}
+                          />
                         </div>
                       ))}
                     </Slider>
@@ -200,6 +207,20 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
           </div>
         </div>
       </section>
+
+      {/* Fullscreen Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img
+            src={selectedImage}
+            alt="Full view"
+            className="max-w-full max-h-full rounded-lg shadow-lg"
+          />
+        </div>
+      )}
     </div>
   );
 };
