@@ -21,6 +21,24 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
 
   const packages = [
     {
+      name: "Mini",
+      price: "$325",
+      emoji: "🎃🍁",
+      description: "Great for smaller porches or DIYers who want just a touch of fall",
+      features: [
+        "Free Shipping",
+        "4 Large Jack O Lanterns, 4 Medium Jack O Lanterns",
+        "4 White Ghost Pumpkins, an assortment of Pie Pumpkins",
+        "6 Specialty Pumpkins",
+        "Does not include design and layout",
+        "Front porch drop off included",
+        "Add design at checkout for $75"
+      ],
+      images: ["/mini-1.png", "/mini-2.png", "/mini-3.png"],
+      popular: false,
+      color: "yellow"
+    },
+    {
       name: "Standard",
       price: "$525",
       emoji: "🎃",
@@ -66,36 +84,10 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Mini Orange & White Pumpkins, 3 Hay Bales",
         "Ornamental Gourds, Includes design and set up"
       ],
+      images: [],
       popular: false,
       color: "purple"
-    },
-    {
-      name: "Mini",
-      price: "$325",
-      emoji: "🎃🍁",
-      description: "Great for smaller porches or DIYers who want just a touch of fall",
-      features: [
-        "Free Shipping",
-        "4 Large Jack O Lanterns, 4 Medium Jack O Lanterns",
-        "4 White Ghost Pumpkins, an assortment of Pie Pumpkins",
-        "6 Specialty Pumpkins",
-        "Does not include design and layout",
-        "Front porch drop off included",
-        "Add design at checkout for $75"
-      ],
-      images: ["/mini-1.png", "/mini-2.png", "/mini-3.png"],
-      popular: false,
-      color: "yellow"
     }
-  ];
-
-  const addOns = [
-    { name: "Porch Lighting", price: "$25", description: "String lights or lanterns" },
-    { name: "Welcome Sign", price: "$35", description: "Custom wooden fall sign" },
-    { name: "Wreath & Door Decor", price: "$45", description: "Matching front door styling" },
-    { name: "Mid-Season Refresh", price: "$40", description: "Update your display halfway through" },
-    { name: "Thanksgiving Update", price: "$30", description: "Add Thanksgiving elements" },
-    { name: "End-Season Cleanup", price: "$25", description: "We remove everything" }
   ];
 
   return (
@@ -114,11 +106,11 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {packages.map((pkg, index) => (
               <div
                 key={index}
-                className={`relative bg-white rounded-2xl shadow-xl border-2 p-8 ${pkg.popular ? 'border-orange-300 transform scale-105' : 'border-gray-200 hover:border-orange-300'} transition-all duration-200 hover:shadow-2xl`}
+                className={`relative bg-white rounded-2xl shadow-xl border-2 p-8 ${pkg.popular ? 'border-orange-300 transform scale-[1.02]' : 'border-gray-200 hover:border-orange-300'} transition-all duration-200 hover:shadow-2xl`}
               >
                 {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -135,14 +127,14 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                   <div className="text-4xl font-bold text-orange-600 mb-3">{pkg.price}</div>
                   <p className="text-gray-600 mb-4">{pkg.description}</p>
 
-                  {pkg.images && (
+                  {pkg.images && pkg.images.length > 0 && (
                     <Slider {...sliderSettings}>
                       {pkg.images.map((src, idx) => (
                         <div key={idx}>
                           <img
                             src={src}
                             alt={`Package ${pkg.name} ${idx + 1}`}
-                            className="rounded-xl w-full h-80 object-cover mb-4 cursor-pointer"
+                            className="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer"
                             onClick={() => setSelectedImage(src)}
                           />
                         </div>
@@ -173,38 +165,6 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      {/* Add-Ons */}
-      <section className="py-20 bg-amber-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Add-On Services</h2>
-            <p className="text-xl text-gray-600">Make your display even more special with these extras</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {addOns.map((addon, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-200">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-lg font-bold text-gray-900">{addon.name}</h3>
-                  <span className="text-xl font-bold text-orange-600">{addon.price}</span>
-                </div>
-                <p className="text-gray-600">{addon.description}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-6">
-              Want to add any of these to your package? Let us know when you book!
-            </p>
-            <button
-              onClick={() => setCurrentPage('book-now')}
-              className="bg-orange-400 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-500 transition-colors duration-200"
-            >
-              Book Now & Add Extras
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -226,7 +186,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      {/* Fullscreen Modal */}
+      {/* Fullscreen Modal with Close Button */}
       {selectedImage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
           <button
