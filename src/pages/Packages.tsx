@@ -47,7 +47,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "14 Specialty Pumpkins, 2 Hay Bales and Ornamental Gourds",
         "Includes design and set up"
       ],
-      images: ["/deluxe-1.png", "/deluxe-2.png", "/deluxe-3.png"], // ✅ This is the new line
+      images: ["/images/deluxe-1.png", "/images/deluxe-2.png", "/images/deluxe-3.png"], // ✅ This is the new line
       popular: true,
       color: "green"
     },
