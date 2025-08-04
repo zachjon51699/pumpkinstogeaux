@@ -9,6 +9,14 @@ interface PackagesProps {
 }
 
 const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
   const packages = [
     {
       name: "Standard",
@@ -39,9 +47,9 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "14 Specialty Pumpkins, 2 Hay Bales and Ornamental Gourds",
         "Includes design and set up"
       ],
+      images: ["/deluxe-1.png", "/deluxe-2.png", "/deluxe-3.png"], // ✅ This is the new line
       popular: true,
-      color: "green",
-      images: ["/deluxe-1.png", "/deluxe-2.png", "/deluxe-3.png"]
+      color: "green"
     },
     {
       name: "Custom",
@@ -69,14 +77,6 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
     { name: "Thanksgiving Update", price: "$30", description: "Add Thanksgiving elements" },
     { name: "End-Season Cleanup", price: "$25", description: "We remove everything" }
   ];
-
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
 
   return (
     <div className="pt-8">
