@@ -34,7 +34,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Front porch drop off included",
         "Add design at checkout for $75"
       ],
-      images: ["/mini-1.png", "/mini-2.png", "/mini-3.png"],
+      images: ["/images/mini-1.png", "/images/mini-2.png", "/images/mini-3.png"],
       popular: false,
       color: "yellow"
     },
@@ -67,7 +67,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "14 Specialty Pumpkins, 2 Hay Bales and Ornamental Gourds",
         "Includes design and set up"
       ],
-      images: ["/deluxe-1.png", "/deluxe-2.png", "/deluxe-3.png"],
+      images: ["/images/deluxe-1.png", "/images/deluxe-2.png", "/images/deluxe-3.png"],
       popular: true,
       color: "green"
     },
@@ -84,8 +84,8 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Mini Orange & White Pumpkins, 3 Hay Bales",
         "Ornamental Gourds, Includes design and set up"
       ],
-      images: [],
-      popular: false,
+      images: ["/images/custom-1.png", "/images/custom-2.png", "/images/custom-3.png"],
+      popular: true,
       color: "purple"
     }
   ];
