@@ -49,7 +49,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "14 Specialty Pumpkins, 2 Hay Bales and Ornamental Gourds",
         "Includes design and set up"
       ],
-      images: ["/images/deluxe-1.png", "/images/deluxe-2.png", "/images/deluxe-3.png"],
+      images: ["/deluxe-1.png", "/deluxe-2.png", "/deluxe-3.png"],
       popular: true,
       color: "green"
     },
@@ -68,6 +68,24 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
       ],
       popular: false,
       color: "purple"
+    },
+    {
+      name: "Mini",
+      price: "$325",
+      emoji: "🎃🍁",
+      description: "Great for smaller porches or DIYers who want just a touch of fall",
+      features: [
+        "Free Shipping",
+        "4 Large Jack O Lanterns, 4 Medium Jack O Lanterns",
+        "4 White Ghost Pumpkins, an assortment of Pie Pumpkins",
+        "6 Specialty Pumpkins",
+        "Does not include design and layout",
+        "Front porch drop off included",
+        "Add design at checkout for $75"
+      ],
+      images: ["/mini-1.png", "/mini-2.png", "/mini-3.png"],
+      popular: false,
+      color: "yellow"
     }
   ];
 
@@ -208,7 +226,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      {/* Fullscreen Modal with Close Button */}
+      {/* Fullscreen Modal */}
       {selectedImage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
           <button
