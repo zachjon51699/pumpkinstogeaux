@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, Star, ArrowRight } from 'lucide-react';
+import { Check, Star, ArrowRight, X } from 'lucide-react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -124,7 +124,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                           <img
                             src={src}
                             alt={`Package ${pkg.name} ${idx + 1}`}
-                            className="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer"
+                            className="rounded-xl w-full h-80 object-cover mb-4 cursor-pointer"
                             onClick={() => setSelectedImage(src)}
                           />
                         </div>
@@ -208,16 +208,19 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      {/* Fullscreen Modal */}
+      {/* Fullscreen Modal with Close Button */}
       {selectedImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
-          onClick={() => setSelectedImage(null)}
-        >
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 text-white hover:text-orange-400 transition-colors"
+          >
+            <X className="w-8 h-8" />
+          </button>
           <img
             src={selectedImage}
             alt="Full view"
-            className="max-w-full max-h-full rounded-lg shadow-lg"
+            className="max-w-full max-h-[90vh] rounded-lg shadow-lg"
           />
         </div>
       )}
