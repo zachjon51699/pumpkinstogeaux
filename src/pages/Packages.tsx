@@ -40,7 +40,8 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Includes design and set up"
       ],
       popular: true,
-      color: "green"
+      color: "green",
+      images: ["/deluxe-1.png", "/deluxe-2.png", "/deluxe-3.png"]
     },
     {
       name: "Custom",
@@ -114,7 +115,6 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                   <div className="text-4xl font-bold text-orange-600 mb-3">{pkg.price}</div>
                   <p className="text-gray-600 mb-4">{pkg.description}</p>
 
-                  {/* Only show carousel if package has images */}
                   {pkg.images && (
                     <Slider {...sliderSettings}>
                       {pkg.images.map((src, idx) => (
