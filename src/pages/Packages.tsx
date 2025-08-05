@@ -34,7 +34,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Front porch drop off included",
         "Add design at checkout for $75"
       ],
-      images: ["/images/mini-1.png", "/images/mini-2.png", "/images/mini-3.png"],
+      images: ["/images/mini-1.png", "/images/mini-2.png"],
       popular: false,
       color: "yellow"
     },
@@ -84,7 +84,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
         "Mini Orange & White Pumpkins, 3 Hay Bales",
         "Ornamental Gourds, Includes design and set up"
       ],
-      images: ["/images/custom-1.png", "/images/custom-2.png", "/images/custom-3.png"],
+      images: ["/images/custom-1.png", "/images/custom-2.png"],
       popular: true,
       color: "purple"
     }
@@ -134,7 +134,7 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                           <img
                             src={src}
                             alt={`Package ${pkg.name} ${idx + 1}`}
-                            className="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer"
+                            className="rounded-xl w-full h-[30rem] object-cover mb-4 cursor-pointer"
                             onClick={() => setSelectedImage(src)}
                           />
                         </div>
