@@ -33,8 +33,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               className="flex items-center space-x-3 cursor-pointer"
               onClick={() => handleNavClick('home')}
             >
-              <div className="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">🎃</span>
+              <div className="w-12 h-12">
+                <img
+                  src="/images/pumpkin-logo.png"
+                  alt="Pumpkins to Geaux Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-orange-600">Pumpkins to Geaux</h1>
