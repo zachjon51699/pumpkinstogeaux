@@ -93,6 +93,15 @@ const BookNow: React.FC = () => {
         </div>
       </section>
 
+      {/* Full-width PNG image */}
+      <section className="w-full">
+        <img
+          src="/images/book-now-banner.png"
+          alt="Book Now Display"
+          className="w-full h-auto object-cover"
+        />
+      </section>
+
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <form onSubmit={handleSubmit} className="space-y-8">
