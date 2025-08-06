@@ -56,11 +56,15 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ setCurrentPage }) => {
 
   return (
     <div className="pt-8">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-100 to-orange-100 py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Hero Section with Background Image */}
+      <section
+        className="relative bg-cover bg-center bg-no-repeat py-20"
+        style={{ backgroundImage: "url('/images/how-it-works-bg.png')" }}
+      >
+        <div className="absolute inset-0 bg-orange-100 bg-opacity-60"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">How It Works</h1>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="text-xl text-gray-800 mb-8">
             From booking to beautiful porch - we make fall decorating easy as can be!
           </p>
           <div className="text-6xl mb-6">🎃 ➜ 🚚 ➜ ✨ ➜ 😊</div>
@@ -92,7 +96,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ setCurrentPage }) => {
                     ))}
                   </ul>
                 </div>
-                
+
                 <div className="flex-1">
                   <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 text-center">
                     <div className="text-8xl mb-4">
@@ -122,7 +126,6 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ setCurrentPage }) => {
           <p className="text-lg text-gray-700 mb-8">
             Proudly serving families throughout Greater Baton Rouge and surrounding areas
           </p>
-          
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
             {serviceAreas.map((area, index) => (
               <div key={index} className="bg-white rounded-lg py-3 px-4 shadow-sm border-2 border-orange-200 hover:border-orange-400 transition-colors">
@@ -130,7 +133,6 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ setCurrentPage }) => {
               </div>
             ))}
           </div>
-          
           <p className="text-gray-600 mb-8">
             Don't see your area? <button 
               onClick={() => setCurrentPage('contact')}
@@ -142,7 +144,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      {/* Timing & Pricing Info */}
+      {/* Timing & Pricing */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -152,22 +154,10 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ setCurrentPage }) => {
                 Timing & Scheduling
               </h3>
               <ul className="space-y-4 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
-                  <span><strong>Season:</strong> Late September through November</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
-                  <span><strong>Notice:</strong> 2-3 days preferred, but we often accommodate same-day</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
-                  <span><strong>Setup Time:</strong> 30-45 minutes</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
-                  <span><strong>Best Days:</strong> Weekends fill up fast - book early!</span>
-                </li>
+                <li><strong>Season:</strong> Late September through November</li>
+                <li><strong>Notice:</strong> 2–3 days preferred, but we often accommodate same-day</li>
+                <li><strong>Setup Time:</strong> 30–45 minutes</li>
+                <li><strong>Best Days:</strong> Weekends fill up fast – book early!</li>
               </ul>
             </div>
 
@@ -177,22 +167,10 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ setCurrentPage }) => {
                 What's Included
               </h3>
               <ul className="space-y-4 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
-                  <span>Fresh pumpkins and seasonal decorations</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
-                  <span>Professional styling and arrangement</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
-                  <span>Delivery throughout Greater Baton Rouge</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
-                  <span>Setup photos for your social media</span>
-                </li>
+                <li>Fresh pumpkins and seasonal decorations</li>
+                <li>Professional styling and arrangement</li>
+                <li>Delivery throughout Greater Baton Rouge</li>
+                <li>Setup photos for your social media</li>
               </ul>
             </div>
           </div>

@@ -93,12 +93,12 @@ const BookNow: React.FC = () => {
         </div>
       </section>
 
-      {/* Full-width PNG image */}
-      <section className="w-full">
+      {/* Image section with adjusted desktop width */}
+      <section className="w-full flex justify-center bg-white">
         <img
           src="/images/book-now-banner.png"
           alt="Book Now Display"
-          className="w-full h-auto object-cover"
+          className="w-full max-w-5xl h-auto object-cover"
         />
       </section>
 
