@@ -38,14 +38,14 @@ const Contact: React.FC = () => {
     {
       icon: <Phone className="w-8 h-8" />,
       title: "Phone",
-      details: "(225) 555-GOAUX",
+      details: "(225) 368-7376",
       description: "Call us for immediate assistance",
       color: "text-orange-600"
     },
     {
       icon: <Mail className="w-8 h-8" />,
       title: "Email",
-      details: "hello@pumpkinstogeaux.com",
+      details: "info@pumpkinstogeaux.com",
       description: "Send us a message anytime",
       color: "text-green-600"
     },
@@ -345,7 +345,7 @@ const Contact: React.FC = () => {
             </p>
             <p className="text-lg">
               <span className="font-semibold text-gray-900">Call us at </span>
-              <span className="text-orange-500 font-bold">(225) 555-GOAUX</span>
+              <span className="text-orange-500 font-bold">(225) 368-7376</span>
               <span className="text-gray-600"> or send us a message above!</span>
             </p>
           </div>
