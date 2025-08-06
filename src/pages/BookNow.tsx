@@ -1,5 +1,3 @@
-// [FULL CONTENT REDACTED FOR BREVITY]
-
 import React, { useState } from 'react';
 import { Calendar, MapPin, Phone, Mail, Clock } from 'lucide-react';
 
@@ -43,7 +41,7 @@ const BookNow: React.FC = () => {
     const updatedAddOns = formData.addOns.includes(addOnId)
       ? formData.addOns.filter(id => id !== addOnId)
       : [...formData.addOns, addOnId];
-    
+
     setFormData({
       ...formData,
       addOns: updatedAddOns
@@ -52,10 +50,10 @@ const BookNow: React.FC = () => {
 
   const calculateTotal = () => {
     const packagePrices: { [key: string]: number } = {
-      mini: 50,
-      standard: 75,
-      deluxe: 125,
-      custom: 175
+      mini: 325,
+      standard: 525,
+      deluxe: 800,
+      custom: 1200
     };
 
     const addOnPrices: { [key: string]: number } = {
@@ -75,7 +73,7 @@ const BookNow: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your booking request! We\'ll contact you within 24 hours to confirm your appointment.');
+    alert("Thank you for your booking request! We'll contact you within 24 hours to confirm your appointment.");
     console.log('Form submitted:', formData);
   };
 
@@ -98,10 +96,42 @@ const BookNow: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Contact Information */}
-            {/* ... same form inputs ... */}
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                  <input type="text" id="name" name="name" required value={formData.name} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                  <input type="email" id="email" name="email" required value={formData.email} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                  <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                </div>
+                <div>
+                  <label htmlFor="referral" className="block text-sm font-medium text-gray-700 mb-2">How did you hear about us?</label>
+                  <input type="text" id="referral" name="referral" value={formData.referral} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                </div>
+              </div>
+            </div>
 
-            {/* Package Selection */}
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Address</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">Street Address *</label>
+                  <input type="text" id="address" name="address" required value={formData.address} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                </div>
+                <div>
+                  <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">City *</label>
+                  <input type="text" id="city" name="city" required value={formData.city} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                </div>
+              </div>
+            </div>
+
             <div className="bg-gray-50 rounded-xl p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Choose Your Package</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -140,7 +170,6 @@ const BookNow: React.FC = () => {
               </div>
             </div>
 
-            {/* Add-Ons */}
             <div className="bg-gray-50 rounded-xl p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Add-On Services</h2>
               <div className="space-y-4">
@@ -162,36 +191,16 @@ const BookNow: React.FC = () => {
               </div>
             </div>
 
-            {/* Date & Time */}
             <div className="bg-gray-50 rounded-xl p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Preferred Date & Time</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-2">
-                    Preferred Install Date *
-                  </label>
-                  <input
-                    type="date"
-                    id="date"
-                    name="date"
-                    required
-                    min={today}
-                    value={formData.date}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg"
-                  />
+                  <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-2">Preferred Install Date *</label>
+                  <input type="date" id="date" name="date" required min={today} value={formData.date} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
                 </div>
                 <div>
-                  <label htmlFor="timePreference" className="block text-sm font-medium text-gray-700 mb-2">
-                    Time of Day
-                  </label>
-                  <select
-                    id="timePreference"
-                    name="timePreference"
-                    value={formData.timePreference}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg"
-                  >
+                  <label htmlFor="timePreference" className="block text-sm font-medium text-gray-700 mb-2">Time of Day</label>
+                  <select id="timePreference" name="timePreference" value={formData.timePreference} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg">
                     <option value="morning">Morning (8am–11am)</option>
                     <option value="afternoon">Afternoon (12pm–3pm)</option>
                     <option value="evening">Evening (4pm–7pm)</option>
@@ -200,32 +209,14 @@ const BookNow: React.FC = () => {
               </div>
             </div>
 
-            {/* Special Requests */}
             <div className="bg-gray-50 rounded-xl p-8">
-              <label htmlFor="specialRequests" className="block text-sm font-medium text-gray-700 mb-2">
-                Special Requests or Notes
-              </label>
-              <textarea
-                id="specialRequests"
-                name="specialRequests"
-                value={formData.specialRequests}
-                onChange={handleInputChange}
-                rows={4}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg"
-              />
+              <label htmlFor="specialRequests" className="block text-sm font-medium text-gray-700 mb-2">Special Requests or Notes</label>
+              <textarea id="specialRequests" name="specialRequests" value={formData.specialRequests} onChange={handleInputChange} rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
             </div>
 
-            {/* Total and Submit */}
             <div className="text-right">
-              <p className="text-lg text-gray-800 mb-4">
-                <strong>Estimated Total:</strong> ${calculateTotal()}
-              </p>
-              <button
-                type="submit"
-                className="px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700"
-              >
-                Book Now
-              </button>
+              <p className="text-lg text-gray-800 mb-4"><strong>Estimated Total:</strong> ${calculateTotal()}</p>
+              <button type="submit" className="px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700">Book Now</button>
             </div>
           </form>
         </div>
