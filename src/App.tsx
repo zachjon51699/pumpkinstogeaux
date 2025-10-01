@@ -6,6 +6,7 @@ import HowItWorks from './pages/HowItWorks';
 import Packages from './pages/Packages';
 import BookNow from './pages/BookNow';
 import Contact from './pages/Contact';
+import { StripeProvider } from './contexts/StripeContext';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -28,13 +29,15 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-orange-50">
-      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <main>
-        {renderPage()}
-      </main>
-      <Footer setCurrentPage={setCurrentPage} />
-    </div>
+    <StripeProvider>
+      <div className="min-h-screen bg-orange-50">
+        <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <main>
+          {renderPage()}
+        </main>
+        <Footer setCurrentPage={setCurrentPage} />
+      </div>
+    </StripeProvider>
   );
 }
 

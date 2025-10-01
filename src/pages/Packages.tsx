@@ -21,26 +21,51 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
 
   const packages = [
     {
+      name: "Starter",
+      price: "$245",
+      originalPrice: "$285",
+      emoji: "🎃🍂",
+      description: "Perfect entry-level package for those wanting a beautiful fall display",
+      features: [
+        "4 Large Jack-O-Lanterns",
+        "4 Medium Jack-O-Lanterns", 
+        "6 White Ghost Pumpkins",
+        "4 Pie Pumpkins",
+        "6 Specialty Pumpkins",
+        "8 Assorted Mini Pumpkins & Gourds",
+        "Hand-selected for quality and color",
+        "Free delivery and setup"
+      ],
+      images: ["/images/mini-1.png", "/images/pumpkin-porch.png"],
+      popular: false,
+      color: "amber",
+      onSale: true
+    },
+    {
       name: "Mini",
-      price: "$325",
+      price: "$395",
+      originalPrice: "$485",
       emoji: "🎃🍁",
       description: "Great for smaller porches or DIYers who want just a touch of fall",
       features: [
-        "Free Shipping",
-        "4 Large Jack O Lanterns, 4 Medium Jack O Lanterns",
-        "4 White Ghost Pumpkins, an assortment of Pie Pumpkins",
-        "6 Specialty Pumpkins",
-        "Does not include design and layout",
-        "Front porch drop off included",
-        "Add design at checkout for $75"
+        "6 Large Jack-O-Lanterns",
+        "6 Medium Jack-O-Lanterns",
+        "8 White Ghost Pumpkins", 
+        "6 Pie Pumpkins",
+        "10 Specialty Pumpkins",
+        "12 Assorted Mini Pumpkins & Gourds",
+        "2 Hay Bales",
+        "Professional design and setup"
       ],
-      images: ["/images/mini-1.png", "/images/mini-2.png"],
+      images: ["/images/mini-2.png"],
       popular: false,
-      color: "yellow"
+      color: "yellow",
+      onSale: true
     },
     {
       name: "Standard",
       price: "$525",
+      originalPrice: "$600",
       emoji: "🎃",
       description: "Perfect starter package for classic fall charm",
       features: [
@@ -53,40 +78,51 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
       ],
       images: ["/images/standard-1.png", "/images/standard-2.png", "/images/standard-3.png"],
       popular: false,
-      color: "orange"
+      color: "orange",
+      onSale: true
     },
     {
       name: "Deluxe",
       price: "$800",
+      originalPrice: "$815",
       emoji: "🎃🌾",
-      description: "Our most popular package with Louisiana flair",
+      description: "Our most popular package with Louisiana flair and premium styling",
       features: [
-        "Free Shipping",
-        "8 Large Jack O Lanterns, 8 Medium Jack O Lanterns",
-        "8 White Ghost Pumpkins, an assortment of Pie Pumpkins",
-        "14 Specialty Pumpkins, 2 Hay Bales and Ornamental Gourds",
-        "Includes design and set up"
+        "8 Large Jack-O-Lanterns",
+        "8 Medium Jack-O-Lanterns",
+        "10 White Ghost Pumpkins",
+        "8 Pie Pumpkins", 
+        "14 Specialty Pumpkins",
+        "16 Assorted Mini Pumpkins & Gourds",
+        "2 Hay Bales and Ornamental Gourds",
+        "Professional design and setup"
       ],
       images: ["/images/deluxe-1.png", "/images/deluxe-2.png", "/images/deluxe-3.png"],
       popular: true,
-      color: "green"
+      color: "green",
+      onSale: true
     },
     {
       name: "Custom",
-      price: "$1200",
+      price: "$1000",
+      originalPrice: "$1295",
       emoji: "🎃✨",
-      description: "Completely personalized for your unique style",
+      description: "Completely personalized for your unique style with premium pumpkins",
       features: [
-        "Free Shipping",
-        "2 Grand Prize Pumpkins, 10 Large Jack O Lanterns",
-        "8 Medium Jack O Lanterns, 8 White Ghost Pumpkins",
-        "Assortment of Pie Pumpkins, 16 Specialty Pumpkins",
-        "Mini Orange & White Pumpkins, 3 Hay Bales",
-        "Ornamental Gourds, Includes design and set up"
+        "2 Grand Prize Pumpkins",
+        "10 Large Jack-O-Lanterns",
+        "8 Medium Jack-O-Lanterns",
+        "8 White Ghost Pumpkins",
+        "Assortment of Pie Pumpkins",
+        "16 Specialty Pumpkins",
+        "Mini Orange & White Pumpkins",
+        "3 Hay Bales and Ornamental Gourds",
+        "Custom design and setup"
       ],
       images: ["/images/custom-1.png", "/images/custom-2.png"],
       popular: true,
-      color: "purple"
+      color: "purple",
+      onSale: true
     }
   ];
 
@@ -124,22 +160,39 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                 <div className="text-center mb-8">
                   <div className="text-6xl mb-4">{pkg.emoji}</div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
-                  <div className="text-4xl font-bold text-orange-600 mb-3">{pkg.price}</div>
+                  <div className="mb-3">
+                    {pkg.onSale && (
+                      <div className="flex items-center justify-center space-x-2 mb-1">
+                        <span className="text-sm text-gray-500 line-through">{pkg.originalPrice}</span>
+                        <span className="bg-red-100 text-red-800 text-xs font-semibold px-2 py-1 rounded">Sale</span>
+                      </div>
+                    )}
+                    <div className="text-4xl font-bold text-orange-600">{pkg.price}</div>
+                  </div>
                   <p className="text-gray-600 mb-4">{pkg.description}</p>
 
                   {pkg.images && pkg.images.length > 0 && (
-                    <Slider {...sliderSettings}>
-                      {pkg.images.map((src, idx) => (
-                        <div key={idx}>
-                          <img
-                            src={src}
-                            alt={`Package ${pkg.name} ${idx + 1}`}
-                            className="rounded-xl w-full h-[30rem] object-cover mb-4 cursor-pointer"
-                            onClick={() => setSelectedImage(src)}
-                          />
-                        </div>
-                      ))}
-                    </Slider>
+                    pkg.images.length === 1 ? (
+                      <img
+                        src={pkg.images[0]}
+                        alt={`Package ${pkg.name}`}
+                        className="rounded-xl w-full h-[30rem] object-cover mb-4 cursor-pointer"
+                        onClick={() => setSelectedImage(pkg.images[0])}
+                      />
+                    ) : (
+                      <Slider {...sliderSettings}>
+                        {pkg.images.map((src, idx) => (
+                          <div key={idx}>
+                            <img
+                              src={src}
+                              alt={`Package ${pkg.name} ${idx + 1}`}
+                              className="rounded-xl w-full h-[30rem] object-cover mb-4 cursor-pointer"
+                              onClick={() => setSelectedImage(src)}
+                            />
+                          </div>
+                        ))}
+                      </Slider>
+                    )
                   )}
                 </div>
 
@@ -152,13 +205,24 @@ const Packages: React.FC<PackagesProps> = ({ setCurrentPage }) => {
                   ))}
                 </ul>
 
-                <button
-                  onClick={() => setCurrentPage('packages')}
-                  className="w-full py-4 px-6 rounded-full font-bold text-lg transition-colors duration-200 flex items-center justify-center space-x-2 bg-orange-400 text-white hover:bg-orange-500"
-                >
-                  <span>Choose {pkg.name}</span>
-                  <ArrowRight className="w-5 h-5" />
-                </button>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-center space-x-4">
+                    <button className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-orange-500 transition-colors">
+                      <span className="text-lg font-bold">-</span>
+                    </button>
+                    <span className="text-xl font-bold w-8 text-center">1</span>
+                    <button className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-orange-500 transition-colors">
+                      <span className="text-lg font-bold">+</span>
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => setCurrentPage('book-now')}
+                    className="w-full py-4 px-6 rounded-full font-bold text-lg transition-colors duration-200 flex items-center justify-center space-x-2 bg-orange-400 text-white hover:bg-orange-500"
+                  >
+                    <span>Add to Cart</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
             ))}
           </div>
