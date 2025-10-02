@@ -76,7 +76,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-orange-500" />
-                <span>info@pumpkinstogeaux.com</span>
+                <span>laurennicole2122@yahoo.com</span>
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-1 text-orange-500" />

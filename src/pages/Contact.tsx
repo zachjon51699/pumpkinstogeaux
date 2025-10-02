@@ -45,7 +45,7 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="w-8 h-8" />,
       title: "Email",
-      details: "info@pumpkinstogeaux.com",
+      details: "laurennicole2122@yahoo.com",
       description: "Send us a message anytime",
       color: "text-green-600"
     },
