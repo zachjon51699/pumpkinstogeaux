@@ -20,18 +20,28 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    alert('Thank you for your message! We\'ll get back to you within 24 hours.');
-    console.log('Contact form submitted:', formData);
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: 'general',
-      message: '',
-      preferredContact: 'email'
-    });
+    
+    // Create email body
+    const emailBody = `
+New Contact Form Submission:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Subject: ${formData.subject}
+Preferred Contact: ${formData.preferredContact}
+
+Message:
+${formData.message}
+    `.trim();
+
+    // Create mailto link
+    const mailtoLink = `mailto:laurennicole2122@yahoo.com?subject=New Contact Form Submission - ${formData.subject}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    alert('Your email client will open with the message ready to send. Please click send to submit your inquiry to laurennicole2122@yahoo.com');
   };
 
   const contactInfo = [
